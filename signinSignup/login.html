@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(51, 50, 50);
+        }
+        #top{
+            height: 700px;
+            width: 55%;
+            /* border: 1px solid red; */
+            margin: auto;
+        }
+        #top>img{
+            height: 150px;
+            width: 150px;
+            margin-left: 37%;
+        }
+        .p1{
+            color: white;
+            font-size: 35px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 15px;
+        }.p2{
+            color: white;
+            font-size: 23px;
+            text-align: center;
+            margin-top: -18px;
+        }
+        #userEmail{
+            width: 298px;
+            height: 40px;
+            background-color: black;
+            color: rgb(38, 222, 78);
+            border: 1px solid white;
+            border-radius: 4px;
+            margin-left: 28%;
+            margin-top: 30px;
+            border: 2px solid white;
+        }
+        .new{
+           margin-top: 60px;
+        }
+        .new>a{
+            margin-left: 34%;
+            color: rgb(39, 146, 222);
+        }
+        #clck{
+            background-color: black;
+            color: white;
+            height: 46px;
+            margin-left: -7px;
+            border: 2px solid white;
+            border-left: 0px;
+        }
+        .userpass{
+            width: 298px;
+            height: 40px;
+            background-color: black;
+            color: rgb(38, 222, 78);
+            border: 1px solid white;
+            border-radius: 4px;
+            margin-left: 28%;
+            margin-top: 0px;
+            border: 2px solid white;
+        }
+        #inv{
+            color: red;
+            margin-left: 28%;
+        }
+        #userpass{
+            width: 280px;
+            height: 40px;
+            background-color: black;
+            color: rgb(38, 222, 78);
+            border: 1px solid white;
+            border-radius: 4px;
+            margin-left: 28%;
+            border: 2px solid white;
+            border-right: 0px;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="top">
+    <img src="image/logo.png" alt="">
+    <p class="p1">Sign in with your Apple ID</p>
+    <p class="p2">You will be signed in to Apple TV and Apple Music</p>
+
+  
+    <div id="input"> 
+        
+        <input type="email" id="userEmail" placeholder="Apple ID" >
+
+        <input type="password" id="userpass" placeholder="Password"><button id="clck">-></button>
+        
+    </div>
+    <p id="inv"></p>
+    
+    <div  class="new">
+        <a href="signup.html">Create New Apple ID  ></a>
+         <br><br>
+        <a href="">Forgot Apple ID or Password ?</a>
+
+    </div>
+
+    
+</div>
+
+
+</body>
+</html>
+<script>
+     document.querySelector("#clck").addEventListener("click", events);
+    var  arr =JSON.parse(localStorage.getItem("userData2"));
+
+  function events() {
+        event.preventDefault();
+      
+        uemail = document.querySelector("#userEmail").value;
+        upass =  document.querySelector("#userpass").value;
+        
+
+if(JSON.parse(localStorage.getItem("userData2"))==null)
+ {
+    inv = document.querySelector("#inv");
+    inv.innerText = "Your AppleID is ivalid.\n Please Create New Account"
+
+   
+ }
+else{
+   var userinfo=JSON.parse(localStorage.getItem("userData2"));
+  // console.log(userinfo[0].Email)
+  var bool = false
+   for(var i=0;i<userinfo.length;i++)
+   {
+       if(userinfo[i].Email==uemail && )
+       {
+      bool = true
+      var abcd =   document.querySelector("#input") 
+      var play = document.createElement('input')
+      abcd.append(play)
+      play.className += 'userpass'  
+      inv.innerText = ""
+
+
+       }
+   }
+   if(bool==false){
+    inv.innerText = "Your AppleID is ivalid.\n Please Create New Account"
+   }
+}
+
+  }
+</script>

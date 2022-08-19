@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(51, 50, 50);
+        }
+        #form{
+           width: 50%;
+           height: 600px;
+           /* border: 1px solid red; */
+           margin: auto;
+           color: antiquewhite;
+          
+        }
+        #form>input{
+            width: 90%;
+            height: 50px;
+            background-color: rgb(11, 9, 9);
+            font-size: 20px;
+            border-radius: 10px;
+            margin-left: 20px;
+            color: aqua;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        #form>p{
+            margin-left: 40px;
+        }
+        #submit{
+            background-color: rgb(17, 138, 236);
+            width: 150px;
+            height: 40px;
+            border: 0px;
+            border-radius: 10px;
+            color: white;
+            font-size: 25px;
+           margin-top: 20px;
+           margin-left: 70%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <h1>Create Apple ID</h1>
+        <input type="text" placeholder="First Name" id="first" required><br><br>
+        <input type="text" placeholder="Last Name" id="last" required><br><br>
+        <input type="date" placeholder="Birthday" id="birth" required><br><br>
+        <input type="email" placeholder="name@examplecom" id="email" required><br>
+        <p>Your email will be your Apple ID.</p><br><br>
+        <input type="password" placeholder="Password" id="pass" required>
+
+        <p><input type="checkbox" required>Agree to terms & Conditions</p>
+
+        <button id="submit">Continue</button>
+    </form>
+</body>
+</html>
+<script>
+     document.querySelector("#form").addEventListener("submit", usersubmit);
+
+    var userDetail =JSON.parse(localStorage.getItem("userData2"))  || [];
+
+    function usersubmit() {
+      event.preventDefault();
+      var dataObj={
+          FirstName:document.querySelector("form").first.value,
+          LastName:document.querySelector("form").last.value,
+          Email:document.querySelector("form").email.value,
+          password:document.querySelector("form").pass.value,
+      };
+    
+       userDetail.push(dataObj);
+           localStorage.setItem("userData2", JSON.stringify(userDetail));
+            console.log(userDetail);
+
+    };
+</script>
